@@ -1,5 +1,5 @@
 version: 1.0
-runtime: corretto21
+runtime: corretto11
 build:
   commands:
     build:
@@ -9,7 +9,5 @@ run:
   network:
     port: 8080
   env:
-    - name: JAVA_HOME
-      value: /usr/lib/jvm/java-21-amazon-corretto
     - name: SPRING_PROFILES_ACTIVE
       value: prod
