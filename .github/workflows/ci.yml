@@ -16,15 +16,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configurar JDK 11
+      - name: Configurar JDK 17 (necessário para o SonarCloud)
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
 
       - name: Executar testes
-        run: mvn clean test
+        run: mvn clean test -Dmaven.compiler.source=11 -Dmaven.compiler.target=11
 
       - name: Análise SonarCloud
         run: mvn sonar:sonar -Dsonar.projectKey=kamyarci_arquitetura-de-software-S1-2026 -Dsonar.organization=kamyarci -Dsonar.host.url=https://sonarcloud.io
