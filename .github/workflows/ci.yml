@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ "feature/MVC", "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configurar JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Executar testes
+        run: mvn clean test
+
+      - name: Análise SonarCloud
+        run: mvn sonar:sonar -Dsonar.projectKey=kamyarci_arquitetura-de-software-S1-2026 -Dsonar.organization=kamyarci -Dsonar.host.url=https://sonarcloud.io
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
