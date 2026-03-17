@@ -1,31 +1,14 @@
-package com.fag.lucasmartins.arquitetura_software.model;
+package com.fag.lucasmartins.arquitetura_software.model.bo;
 
-import javax.persistence.*;
+public class ProdutoBO {
 
-@Entity
-@Table(name = "produto")
-public class Produto {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private String nome;
-
-    @Column(nullable = false)
     private double preco;
-
-    @Column(name = "preco_final", nullable = false)
     private double precoFinal;
-
-    @Column(nullable = false)
     private int estoque;
 
-    protected Produto() {
-    }
-
-    public Produto(String nome, double preco, int estoque) {
+    public ProdutoBO(String nome, double preco, int estoque) {
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
@@ -60,31 +43,15 @@ public class Produto {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public double getPreco() {
         return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
     }
 
     public double getPrecoFinal() {
         return precoFinal;
     }
 
-    public void setPrecoFinal(double precoFinal) {
-        this.precoFinal = precoFinal;
-    }
-
     public int getEstoque() {
         return estoque;
-    }
-
-    public void setEstoque(int estoque) {
-        this.estoque = estoque;
     }
 }

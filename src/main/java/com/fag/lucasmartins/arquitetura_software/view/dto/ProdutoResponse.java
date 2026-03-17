@@ -1,4 +1,4 @@
-package com.fag.lucasmartins.arquitetura_software.dto;
+package com.fag.lucasmartins.arquitetura_software.view.dto;
 
 public class ProdutoResponse {
 
