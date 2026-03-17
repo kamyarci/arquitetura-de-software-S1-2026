@@ -6,6 +6,9 @@ import com.fag.lucasmartins.arquitetura_software.view.dto.ProdutoResponse;
 
 public class ProdutoDTOMapper {
 
+    private ProdutoDTOMapper() {
+    }
+
     public static ProdutoBO toBo(CadastrarProdutoRequest request) {
         return new ProdutoBO(request.getNome(), request.getPreco(), request.getEstoque());
     }
