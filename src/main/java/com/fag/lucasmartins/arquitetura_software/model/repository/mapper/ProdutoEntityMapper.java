@@ -5,6 +5,9 @@ import com.fag.lucasmartins.arquitetura_software.model.repository.entity.Produto
 
 public class ProdutoEntityMapper {
 
+    private ProdutoEntityMapper() {
+    }
+
     public static ProdutoEntity toEntity(ProdutoBO bo) {
         return new ProdutoEntity(bo.getNome(), bo.getPreco(), bo.getPrecoFinal(), bo.getEstoque());
     }
